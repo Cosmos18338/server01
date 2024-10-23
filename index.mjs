@@ -43,6 +43,30 @@ app.get("/api/users", (req, res) => {
 });
 
 
+app.get("/api/users/logout", checkToken, (req, res) => {
+  console.log(req.decoded);
+  let message = `登出成功`;
+  let token = jwt.sign({
+    account: req.decoded.account,
+    name: req.decoded.name,
+    mail: req.decoded.mail,
+    head: req.decoded.head
+  }, process.env.SECRET_KEY, {expiresIn: "-10s"})
+  res.status(200).json({result: "success", message, data: token});
+});
+
+app.get("/api/users/status", checkToken, (req, res) => {
+  const message = `登入成功`;
+  let token = jwt.sign({
+    account: req.decoded.account,
+    name: req.decoded.name,
+    mail: req.decoded.mail,
+    head: req.decoded.head
+  }, process.env.SECRET_KEY, {expiresIn: "30m"})
+  res.status(200).json({result: "success", message, data: token});
+});
+
+
 
 app.listen(3005, () => {
   console.log("Server is running on http://localhost:3005");
