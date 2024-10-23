@@ -199,7 +199,6 @@ app.get("/api/users/account", async (req, res) => {
   res.status(200).json({result: "success", message});
 });
 
-<<<<<<< HEAD
 app.get("/api/users/logout", checkToken, (req, res) => {
   console.log(req.decoded);
   let message = `登出成功`;
@@ -224,19 +223,6 @@ app.get("/api/users/status", checkToken, (req, res) => {
 });
 
 
-=======
-// 檢查mail有沒有被使用
-app.get("/api/users/mail", async (req, res) => {
-  const {mail} = req.query;
-  let message = "mail沒有被使用";
-  let result = db.data.user.find(u => u.mail == mail);
-  if(result){
-    message = "mail已經被使用";
-    return res.status(400).json({result: "fail", message});
-  };
-  res.status(200).json({result: "success", message});
-});
->>>>>>> 104def64a8a0ea7a89d038a3e77ff7e74cb81c84
 
 app.listen(3005, () => {
   console.log("Server is running on http://localhost:3005");
