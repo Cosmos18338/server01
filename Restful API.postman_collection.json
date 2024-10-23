@@ -1,0 +1,479 @@
+{
+	"info": {
+		"_postman_id": "f420fad2-26dd-4d26-8926-b3e02f94fec0",
+		"name": "Restful API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "37535384"
+	},
+	"item": [
+		{
+			"name": "新增使用者",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "account",
+							"value": "ken",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "a12345",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "josh liu",
+							"type": "text"
+						},
+						{
+							"key": "mail",
+							"value": "josh@test.com",
+							"type": "text"
+						},
+						{
+							"key": "head",
+							"value": "https://randomuser.me/api/portraits/men/14.jpg",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/users/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"users",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "檢查帳號是否被使用",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "account",
+							"value": "josh",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "a12345",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "josh liu",
+							"type": "text"
+						},
+						{
+							"key": "mail",
+							"value": "josh@test.com",
+							"type": "text"
+						},
+						{
+							"key": "head",
+							"value": "https://randomuser.me/api/portraits/men/14.jpg",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/users/account?account=jack",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"users",
+						"account"
+					],
+					"query": [
+						{
+							"key": "account",
+							"value": "jack"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "檢查信箱是否被使用",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "mail",
+							"value": "josh@test.com",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/users/mail?mail=josh@test.com",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"users",
+						"mail"
+					],
+					"query": [
+						{
+							"key": "mail",
+							"value": "josh@test.com"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "更新使用者",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "account",
+							"value": "ben",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "password",
+							"value": "a12345",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "Ben Chen",
+							"type": "text"
+						},
+						{
+							"key": "mail",
+							"value": "ben@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "head",
+							"value": "https://randomuser.me/api/portraits/men/58.jpg",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/users/ben",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"users",
+						"ben"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "刪除使用者",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/users/josh",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"users",
+						"josh"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "使用者登入",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "account",
+							"value": "ben",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "a12345",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/users/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"users",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "使用者登出",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NvdW50IjoiYmVuIiwibmFtZSI6IkJlbiBDaGVuIiwibWFpbCI6ImJlbkBnbWFpbC5jb20iLCJoZWFkIjoiaHR0cHM6Ly9yYW5kb211c2VyLm1lL2FwaS9wb3J0cmFpdHMvbWVuLzU4LmpwZyIsImlhdCI6MTcyOTU2NDQ4MywiZXhwIjoxNzI5NTY0NDczfQ.CYQrzd6GiC7uXi3CtQJXPvVAzPpwBouyHodsYGAdpvw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/users/logout",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"users",
+						"logout"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "使用者狀態檢查",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NvdW50IjoiYmVuIiwibmFtZSI6IkJlbiBDaGVuIiwibWFpbCI6ImJlbkBnbWFpbC5jb20iLCJoZWFkIjoiaHR0cHM6Ly9yYW5kb211c2VyLm1lL2FwaS9wb3J0cmFpdHMvbWVuLzU4LmpwZyIsImlhdCI6MTcyOTU2NTA1OSwiZXhwIjoxNzI5NTY2ODU5fQ.EA-CKhO_qh6HM2MwLQUdd0u7daMHwJEPxzufLh1GNUQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "account",
+							"value": "ben",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "a12345",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/users/status",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"users",
+						"status"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "搜尋使用者",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "id",
+							"value": "ben",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/users/search?id=11",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"users",
+						"search"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "11"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "獲取所有使用者",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "獲取單一使用者",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/users/ben",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"users",
+						"ben"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
