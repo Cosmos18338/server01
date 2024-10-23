@@ -42,7 +42,29 @@ app.get("/api/users", (req, res) => {
   res.status(200).json({ result: "success", message, data: users });
 });
 
+// 檢查帳號有沒有被使用
+app.get("/api/users/account", async (req, res) => {
+  const {account} = req.query;
+  let message = "帳號沒有被使用";
+  let result = db.data.user.find(u => u.account == account);
+  if(result){
+    message = "帳號已經被使用";
+    return res.status(400).json({result: "fail", message});
+  };
+  res.status(200).json({result: "success", message});
+});
 
+// 檢查mail有沒有被使用
+app.get("/api/users/mail", async (req, res) => {
+  const {mail} = req.query;
+  let message = "mail沒有被使用";
+  let result = db.data.user.find(u => u.mail == mail);
+  if(result){
+    message = "mail已經被使用";
+    return res.status(400).json({result: "fail", message});
+  };
+  res.status(200).json({result: "success", message});
+});
 
 app.listen(3005, () => {
   console.log("Server is running on http://localhost:3005");
